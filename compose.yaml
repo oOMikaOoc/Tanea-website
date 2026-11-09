@@ -1,0 +1,45 @@
+# Portainer : Docker Standalone Linux, image publiée sur GHCR.
+services:
+  tanea:
+    image: ${TANEA_IMAGE:?Definir TANEA_IMAGE avec la reference GHCR complete}
+    pull_policy: always
+    restart: unless-stopped
+    init: true
+    environment:
+      FLASK_SECRET_KEY: ${FLASK_SECRET_KEY:?Definir FLASK_SECRET_KEY dans Portainer}
+      FLASK_COOKIE_SECURE: ${FLASK_COOKIE_SECURE:-true}
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - tanea_data:/app/data:ro
+    ports:
+      - "127.0.0.1:${TANEA_PORT:-8085}:8000"
+    networks:
+      - tanea_proxy
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/', timeout=5).close()"]
+      interval: 30s
+      timeout: 10s
+      start_period: 15s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  tanea_data:
+    external: true
+    name: tanea_data
+
+networks:
+  tanea_proxy:
+    name: tanea_proxy

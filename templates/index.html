@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TANÉA, atelier de personnalisation à Gap (05) : broderie CNC, flocage DTF, sublimation et cadeaux sur mesure. Parlez de votre projet à Tania.">
+  <meta name="theme-color" content="#F8F3EC">
+  <title>TANÉA — Broderie & personnalisation textile à Gap (05)</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/tanea-logo.png') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{cream:'#F8F3EC',terra:'#C05638',gold:'#D8A562',bronze:'#4A3C33'},fontFamily:{serif:['Cormorant Garamond','Georgia','serif'],sans:['Inter','sans-serif']}}}}</script>
+  <style>
+    :root{--cream:#f8f3ec;--terra:#c05638;--bronze:#4a3c33}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--cream);color:var(--bronze);font-family:Inter,Arial,sans-serif;font-size:16px;line-height:1.7}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.05}a{color:inherit}button,input,select,textarea{font:inherit}a,button,input,select,textarea{outline-offset:5px}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--terra)}.shell{width:min(1200px,calc(100% - 64px));margin:auto}.eyebrow{font-size:12px;letter-spacing:.19em;text-transform:uppercase;font-weight:600}.btn{display:inline-flex;align-items:center;justify-content:center;gap:13px;padding:15px 23px;border-radius:4px;text-decoration:none;font-size:14px;font-weight:500;transition:background .2s,transform .2s;border:1px solid transparent;cursor:pointer}.btn:hover{transform:translateY(-2px)}.btn-main{background:#d8a562;color:#382b21}.btn-main:hover{background:#c99655}.btn-outline{border-color:#c8b7a6;background:transparent}.btn-outline:hover{background:#eee3d7}.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.muted{color:#726357}.section{padding:100px 0}.rule{border-top:1px solid #ded1c4}.hero-art{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;padding:24px 0}.hero-arch{display:grid;place-items:center;width:87%;max-width:460px;aspect-ratio:1 / 1.08;padding:14% 9% 6%;border:1px solid #dbc4ac;border-radius:50% 50% 3px 3px;background:#f0e6d9;overflow:hidden}.hero-arch img{display:block;width:100%;height:100%;min-height:0;object-fit:contain}.hero-signature{position:relative;margin:16px 0 0;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:23px;color:#a2462e}.hero-signature:before,.hero-signature:after{content:'✦';font-family:Georgia,serif;font-style:normal;font-size:12px;color:#d8a562;margin:0 15px;vertical-align:middle}.service{display:grid;grid-template-columns:58px 1fr;gap:22px;padding:34px 0;border-top:1px solid #d6c8b8}.service-icon{display:grid;place-items:center;width:53px;height:53px;border:1px solid #d9bea0;border-radius:50%;color:#aa4a31}.service-icon svg{width:25px;height:25px}.service h3{font-size:30px;margin:0 0 15px}.service p{margin-bottom:18px;color:#726357;font-size:15px}.service a{font-size:13px;font-weight:600;text-decoration:none;color:#a2462e;display:inline-flex;align-items:center;gap:12px}.field{display:block;width:100%;margin-top:8px;border:1px solid #d5c6b5;background:#fffdf9;padding:13px 15px;border-radius:4px;color:var(--bronze)}label{font-size:14px;font-weight:500}.error{color:#a42e22;font-size:13px;margin:5px 0 0}.star{letter-spacing:.15em;color:#a06b27}.skip{position:fixed;top:-100px;left:15px;z-index:99;background:white;padding:10px}.skip:focus{top:10px}.footer-link{text-decoration:none}.footer-link:hover{text-decoration:underline}summary{cursor:pointer}details[open] summary{margin-bottom:20px}@media(max-width:767px){.shell{width:calc(100% - 40px)}.section{padding:64px 0}.hero-art{margin:15px 0 20px;padding:0}.hero-arch{width:88%;max-width:360px}.hero-signature{font-size:20px}.hero-signature:before,.hero-signature:after{margin:0 8px}.btn{padding:13px 17px}.service{gap:15px}.service h3{font-size:27px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before{transition:none!important}}
+  </style>
+</head>
+<body>
+{% macro icon(name) -%}
+<svg class="icon" aria-hidden="true" viewBox="0 0 24 24">{% if name == 'arrow' %}<path d="M4 12h15m-6-6 6 6-6 6"/>{% elif name == 'pin' %}<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>{% elif name == 'heart' %}<path d="M20 5c-3-3-7-1-8 2-1-3-5-5-8-2s-1 7 8 14c9-7 11-11 8-14Z"/>{% elif name == 'thread' %}<path d="m7 3 10 18M5 6l8-4M11 22l8-4M7 8l8-4M9 12l8-4M11 16l8-4M3 18c-2 5 6 5 6 1"/>{% elif name == 'shirt' %}<path d="m8 3-6 4 3 5 3-2v11h8V10l3 2 3-5-6-4c0 4-8 4-8 0Z"/>{% elif name == 'mug' %}<path d="M4 7h12v10a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4ZM16 8h3a3 3 0 0 1 0 6h-3M7 2v2m5-2v2"/>{% elif name == 'spark' %}<path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5Z"/>{% elif name == 'phone' %}<path d="m5 3 4 4-2 3a17 17 0 0 0 7 7l3-2 4 4c-5 8-24-11-16-16Z"/>{% elif name == 'mail' %}<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/>{% else %}<path d="M21 11.5a9 9 0 0 1-13 8L3 21l1.5-5A9 9 0 1 1 21 11.5Z"/><path d="m8 7 2 3-1 1 4 3 1-1 2 1"/>{% endif %}</svg>
+{%- endmacro %}
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="text-center py-2 px-4 text-xs tracking-widest bg-bronze text-cream">DES CRÉATIONS QUI VOUS RESSEMBLENT · GAP, HAUTES-ALPES</div>
+<header class="border-b border-[#ded1c4]">
+  <div class="shell flex items-center justify-between gap-5 py-5">
+    <a href="#accueil" aria-label="TANÉA — Accueil" class="no-underline"><img src="{{ url_for('static', filename='images/tanea-wordmark.png') }}" alt="TANÉA" width="151" height="60" class="w-[132px] sm:w-[151px] h-auto"><span class="block text-[10px] tracking-[.22em] mt-1 uppercase">Créations personnalisées</span></a>
+    <nav aria-label="Navigation principale" class="hidden md:flex items-center gap-7 text-sm"><a href="#accueil">Accueil</a><a href="#prestations">Prestations</a><a href="#a-propos">À propos</a>{% if reviews %}<a href="#avis">Avis</a>{% endif %}<a href="#contact">Contact</a></nav>
+    <a href="#contact" class="btn btn-main hidden sm:inline-flex">Demander un devis {{ icon('arrow') }}</a>
+    <details class="md:hidden relative"><summary class="text-sm">Menu</summary><nav aria-label="Navigation mobile" class="absolute right-0 top-10 z-20 w-48 bg-cream border border-[#ded1c4] p-5 shadow-lg flex flex-col gap-4 text-sm"><a href="#accueil">Accueil</a><a href="#prestations">Prestations</a><a href="#a-propos">À propos</a>{% if reviews %}<a href="#avis">Avis</a>{% endif %}<a href="#contact">Contact</a></nav></details>
+  </div>
+</header>
+<main id="main">
+  <section id="accueil" class="shell pt-12 md:pt-16 pb-10">
+    <div class="grid md:grid-cols-[1.08fr_1fr] items-center gap-5 md:gap-14">
+      <div>
+        <p class="eyebrow flex items-center gap-2 mb-6 text-terra">{{ icon('pin') }} Un atelier, mille possibilités · Gap (05)</p>
+        <h1 class="text-[44px] sm:text-[56px] lg:text-[68px] tracking-[-.025em] mb-6">Atelier de<br>Personnalisation<br><span class="text-terra italic">Textile & Broderie</span><br>à Gap</h1>
+        <p class="font-serif italic text-2xl mb-3">Créé avec cœur, pour des moments uniques...</p>
+        <p class="muted max-w-lg text-[15px] leading-7 mb-8">Donnez vie à vos projets en broderie CNC, flocage DTF, sublimation et cadeaux sur-mesure dans les Hautes-Alpes.</p>
+        <div class="flex flex-wrap gap-3"><a class="btn btn-main" href="#prestations">Voir les prestations {{ icon('arrow') }}</a><a class="btn btn-outline" href="#contact">Envoyer un projet</a></div>
+      </div>
+      <div class="hero-art"><div class="hero-arch"><img src="{{ url_for('static', filename='images/tanea-logo.png') }}" width="389" height="413" fetchpriority="high" alt="TANÉA : dragon terracotta et plume dorée à l’aquarelle"></div><p class="hero-signature">Une idée. Une création. Une émotion.</p></div>
+    </div>
+    <div class="rule flex flex-wrap justify-center md:justify-between gap-5 pt-6 mt-8 text-sm"><span class="flex gap-3 items-center">{{ icon('heart') }} Créé avec passion</span><span class="flex gap-3 items-center">{{ icon('pin') }} Personnalisé à Gap</span><span class="flex gap-3 items-center">{{ icon('thread') }} À la pièce ou en petite série</span><span class="flex gap-3 items-center">{{ icon('spark') }} Pour offrir, ou pour soi</span></div>
+  </section>
+  <section id="prestations" class="section bg-[#efe6db] mt-5">
+    <div class="shell">
+      <div class="md:flex justify-between items-end gap-10 mb-12"><div><p class="eyebrow text-terra mb-4">Les savoir-faire de l’atelier</p><h2 class="text-4xl md:text-5xl mb-0">Vos envies, <em class="text-terra">ma touche créative.</em></h2></div><p class="muted text-sm max-w-xs mt-5 md:mb-0">Un prénom, un dessin, un souvenir…<br>Chaque détail raconte votre histoire.</p></div>
+      <div class="grid md:grid-cols-2 gap-x-20">
+      {% for symbol, title, description, tag, selection in [
+        ('thread', 'Broderie CNC', 'Une broderie haute précision, durable et élégante sur vos vêtements, casquettes, linges et tenues professionnelles.', 'Le relief d’un savoir-faire', 'Broderie'),
+        ('shirt', 'Flocage DTF & Marquage Textile', 'Vos idées prennent couleur sur des t-shirts, sweats et vêtements d’ateliers. Un marquage qui vous ressemble.', 'La couleur, sans limite à l’imagination', 'Flocage DTF'),
+        ('mug', 'Sublimation & Objets', 'Mugs, gourdes, tote bags et cadeaux sur-mesure : des couleurs vibrantes pour embellir les petits moments du quotidien.', 'Les petites attentions qui restent', 'Sublimation'),
+        ('spark', 'Gravure & Déco', 'Créations, gravures et découpes sur bois ou supports variés pour vos mariages, anniversaires et événements.', 'Une empreinte pour les grands moments', 'Autre')
+      ] %}
+        <article class="service"><div class="service-icon">{{ icon(symbol) }}</div><div><p class="eyebrow !text-[10px] !mb-3">{{ tag }}</p><h3>{{ title }}</h3><p>{{ description }}</p><a href="#contact" data-service="{{ selection }}">Parlons de votre projet {{ icon('arrow') }}</a></div></article>
+      {% endfor %}
+      </div>
+    </div>
+  </section>
+  <section id="a-propos" class="section shell grid md:grid-cols-2 gap-10 md:gap-20 items-center">
+    <figure class="m-0"><img class="w-full aspect-[5/4] object-cover rounded-t-[160px]" src="{{ url_for('static', filename='images/atelier-creations.png') }}" alt="Illustration d’ambiance : textile brodé, mug à motif végétal et décoration en bois sur du lin" loading="lazy" width="1536" height="1024"><figcaption class="text-xs muted mt-3">Visuel d’inspiration — illustration générée, non contractuelle.</figcaption></figure>
+    <div><p class="eyebrow text-terra mb-5">Derrière TANÉA, ma passion</p><h2 class="text-4xl md:text-5xl mb-6">Moi, c’est Tania.<br><em class="text-terra">Et j’aime créer pour vous.</em></h2><p class="muted">À Gap, au cœur des Hautes-Alpes, je donne vie à vos idées avec une conviction : les plus belles créations sont celles qui ont du sens.</p><p class="muted">Un cadeau pour une personne chère, une tenue pour votre équipe ou un détail pour votre mariage… Je prends le temps d’écouter votre projet et de soigner sa personnalisation, à la pièce comme en série.</p><p class="font-serif italic text-2xl text-terra mt-6 mb-7">« Du cœur, du fil, et un peu de magie. »</p><a class="btn btn-outline" href="#contact">Créons quelque chose ensemble {{ icon('arrow') }}</a></div>
+  </section>
+  {% if reviews %}
+  <section id="avis" class="section bg-[#efe6db]">
+    <div class="shell"><div class="text-center mb-10"><p class="eyebrow text-terra">Vos mots, ma plus belle récompense</p><h2 class="text-4xl md:text-5xl mb-4">De jolies créations, <em class="text-terra">de jolis liens.</em></h2></div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for review in reviews %}
+        <figure class="m-0 p-7 bg-[#faf6f0] border border-[#e3d5c5] min-w-0 break-words"><div class="star text-lg" role="img" aria-label="Note : {{ review.rating }} sur 5"><span aria-hidden="true">{{ '★' * review.rating }}{{ '☆' * (5 - review.rating) }}</span></div><blockquote class="font-serif text-2xl leading-snug my-5 mx-0 whitespace-pre-line">« {{ review.text }} »</blockquote><figcaption class="text-xs muted">{{ review.author }}</figcaption></figure>
+      {% endfor %}</div>
+    </div>
+  </section>
+  {% endif %}
+  <section id="contact" class="section shell grid md:grid-cols-[.85fr_1.15fr] gap-12 md:gap-20">
+    <div><p class="eyebrow text-terra">Et si vous me confiez votre idée ?</p><h2 class="text-5xl md:text-6xl mb-6">Votre projet<br>commence <em class="text-terra">ici.</em></h2><p class="muted mb-8">Racontez-moi votre idée, le support souhaité, les quantités et votre date idéale. Je vous accompagne pour trouver la personnalisation qui vous ressemble.</p><div class="space-y-5 text-sm"><a class="flex items-center gap-4 footer-link" href="tel:+33621764499">{{ icon('phone') }} 06 21 76 44 99</a><a class="flex items-center gap-4 footer-link" href="mailto:tanea05@proton.me">{{ icon('mail') }} tanea05@proton.me</a><p class="flex items-center gap-4">{{ icon('pin') }} Atelier à Gap · Hautes-Alpes (05)</p></div><div class="rule pt-6 mt-8"><p class="font-serif italic text-2xl mb-2">Une simple idée suffit pour commencer.</p><p class="text-sm muted">À la pièce ou en série, particuliers et professionnels.</p></div></div>
+    <form action="{{ url_for('contact') }}#contact" method="post" class="bg-[#efe6db] p-6 sm:p-9 rounded-lg" aria-label="Demande de devis">
+      <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+      <div class="absolute -left-[10000px]" aria-hidden="true"><label for="website">Ne pas remplir</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+      {% if errors %}<div role="alert" tabindex="-1" id="form-errors" class="mb-6 border border-[#a42e22] p-4 text-sm"><strong>Votre demande n’a pas encore été transmise.</strong><p class="mb-0">{{ errors.get('form', 'Vérifiez les champs indiqués ci-dessous.') }}</p></div>{% endif %}
+      <div class="grid sm:grid-cols-2 gap-5 mb-5">
+      {% for key, label, type, placeholder, autocomplete, maxlength in [('name','Votre nom','text','Camille Dupont','name',100),('phone','Votre téléphone','tel','06 00 00 00 00','tel',30)] %}
+      <div><label for="{{ key }}">{{ label }} <span aria-hidden="true">*</span></label><input class="field" id="{{ key }}" name="{{ key }}" type="{{ type }}" autocomplete="{{ autocomplete }}" placeholder="{{ placeholder }}" required maxlength="{{ maxlength }}" value="{{ values.get(key, '') }}" {% if key == 'name' %}minlength="2"{% endif %} {% if errors.get(key) %}aria-invalid="true" aria-describedby="{{ key }}-error"{% endif %}>{% if errors.get(key) %}<p id="{{ key }}-error" class="error">{{ errors[key] }}</p>{% endif %}</div>
+      {% endfor %}</div>
+      <div class="mb-5"><label for="service">Votre envie <span aria-hidden="true">*</span></label><select class="field" id="service" name="service" required {% if errors.get('service') %}aria-invalid="true" aria-describedby="service-error"{% endif %}><option value="">Choisir une prestation</option>{% for service in services %}<option value="{{ service }}" {% if values.get('service') == service %}selected{% endif %}>{{ service }}</option>{% endfor %}</select>{% if errors.get('service') %}<p id="service-error" class="error">{{ errors.service }}</p>{% endif %}</div>
+      <div class="mb-5"><label for="message">Parlez-moi de votre projet <span aria-hidden="true">*</span></label><textarea class="field resize-y" id="message" name="message" rows="5" required minlength="10" maxlength="1500" placeholder="Une idée de cadeau, des sweats pour votre équipe, une date à célébrer…" {% if errors.get('message') %}aria-invalid="true" aria-describedby="message-error"{% endif %}>{{ values.get('message', '') }}</textarea>{% if errors.get('message') %}<p id="message-error" class="error">{{ errors.message }}</p>{% endif %}</div>
+      <button class="btn btn-main w-full" type="submit">{{ icon('whatsapp') }} Envoyer ma demande via WhatsApp</button><p class="text-xs muted mt-4 mb-0 leading-relaxed">* Champs obligatoires. WhatsApp s’ouvrira avec votre message pré-rempli : vous pourrez le relire et confirmer son envoi. Le site ne conserve pas votre demande.</p>
+    </form>
+  </section>
+</main>
+<footer class="bg-bronze text-cream py-10"><div class="shell"><div class="flex flex-col md:flex-row justify-between gap-8"><div><a href="#accueil" class="font-serif text-4xl no-underline">TaNéA</a><p class="text-xs tracking-widest uppercase mt-2 mb-3">Créations personnalisées</p><p class="font-serif italic text-xl text-[#e3c4a5]">Créé avec cœur, pour des moments uniques...</p></div><div class="text-sm space-y-2"><a class="block footer-link" href="tel:+33621764499">06 21 76 44 99</a><a class="block footer-link" href="mailto:tanea05@proton.me">tanea05@proton.me</a><span class="block">TikTok : @oOTanéaOoc</span></div><p class="text-sm max-w-xs text-[#ddcec2]">Broderie, textile et cadeaux sur-mesure à Gap. Une touche de vous, au cœur des Hautes-Alpes.</p></div><div class="border-t border-[#726053] mt-7 pt-5 flex flex-wrap justify-between gap-3 text-xs text-[#ddcec2]"><span>© {{ year }} TANÉA · Atelier de personnalisation à Gap (05)</span><span>Imaginé avec vous. Créé avec cœur.</span></div></div></footer>
+<script>
+  document.querySelectorAll('[data-service]').forEach(link => link.addEventListener('click', () => {document.getElementById('service').value = link.dataset.service;}));
+  document.querySelectorAll('details nav a').forEach(link => link.addEventListener('click', () => link.closest('details').removeAttribute('open')));
+  const errors = document.getElementById('form-errors'); if (errors) errors.focus();
+</script>
+</body>
+</html>
